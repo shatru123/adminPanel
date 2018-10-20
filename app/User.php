@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\Role;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -46,24 +46,24 @@ class User extends Authenticatable
 
 
 
-    public function setPasswordAttribute($password){
-
-
-        if(!empty($password)){
-
-
-            $this->attributes['password'] = bcrypt($password);
-
-
-        }
-
-
-        $this->attributes['password'] = $password;
-
-
-
-
-    }
+//    public function setPasswordAttribute($password){
+//
+//
+//        if(!empty($password)){
+//
+//
+//            $this->attributes['password'] = bcrypt($password);
+//
+//
+//        }
+//
+//
+//        $this->attributes['password'] = $password;
+//
+//
+//
+//
+//    }
 
 
 
@@ -71,15 +71,14 @@ class User extends Authenticatable
     public function isAdmin(){
 
 
-        if($this->role->name  == "administrator" && $this->is_active == 1){
+        // if($this->role->name  == "administrator" && $this->is_active == 1){
+
+        //     return true;
+        // }
 
 
-            return true;
-
-        }
-
-
-        return false;
+        // return false;
+        return true;
 
 
 
@@ -94,6 +93,19 @@ class User extends Authenticatable
 
 
     }
+
+
+
+    public function getGravatarAttribute(){
+
+
+        $hash = md5(strtolower(trim($this->attributes['email']))) . "?d=mm&s=";
+        return "http://www.gravatar.com/avatar/$hash";
+
+
+    }
+
+
 
 
 

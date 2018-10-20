@@ -14,8 +14,6 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('app.scss')
 
-
-
         .styles([
 
                 'libs/blog-post.css',
@@ -28,10 +26,6 @@ elixir(function(mix) {
             ], './public/css/libs.css')
 
 
-
-
-
-
             .scripts([
 
 
@@ -42,11 +36,6 @@ elixir(function(mix) {
                 'libs/scripts.js'
 
 
-
-
-
-
             ], './public/js/libs.js')
-
 
 });

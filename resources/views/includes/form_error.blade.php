@@ -13,15 +13,8 @@
 
             @endforeach
 
-
-
         </ul>
 
-
-
     </div>
-
-
-
 
 @endif
